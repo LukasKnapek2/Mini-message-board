@@ -15,12 +15,16 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  res.send('GET request to the homepage');
+  res.render("index", { title: "Mini Messageboard", messages: messages })
 });
 
 router.get('/new', (req, res) => {
-  res.send('GET request to the new message page');
+  res.render("form", { title: "Mini Messageboard", messages: messages })
 });
 
+router.post('/new', (req, res) => {
+  messages.push({ text: req.body.text, user: req.body.user, added: new Date() });
+  res.redirect('/');
+});
 
 module.exports = router;
