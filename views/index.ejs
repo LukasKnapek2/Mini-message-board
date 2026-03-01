@@ -10,8 +10,11 @@
     <h1><%= title %></h1>
     
     <ul>
-        <% messages.forEach(message => { %>
-            <li><%= message.text %> - <%= message.user %> (<%= message.added %>)</li>
+        <% messages.forEach((message, index) => { %>
+            <li><%= message.text %> - <%= message.user %> (<%= message.added %>)
+                <a href="/message/<%= index %>">Open</a>
+                <a href="/delete/<%= index %>">Delete</a>
+            </li>
         <% }) %>
     </ul>
 </body>
