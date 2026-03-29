@@ -11,7 +11,7 @@
     
     <ul>
         <% messages.forEach((message) => { %>
-            <li><%= message.text %> - <%= message.user %> (<%= message.added %>)
+            <li><%= message.text %> - <%= message.username %> (<%= message.added %>)
                 <a href="/message/<%= message.id %>">Open</a>
                 <a href="/delete/<%= message.id %>">Delete</a>
             </li>
